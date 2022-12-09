@@ -67,7 +67,11 @@ public class FileIO<T> {
                                         int age = new Integer(fields[4]);
 					String fatherName = fields[5];
 					String motherName = fields[6];
-                                        T s = (T)new Student(fname,lname,registerTime,id,age,fatherName,motherName);
+                                               String address = fields[7];
+                                        long phoneNum = Long.parseLong(fields[8]);
+                                    
+                                        T s = (T)new Student(fname,lname,registerTime,id,age,fatherName,motherName,address,phoneNum);
+					
 					data.add(s);	
 				}
 				else if(pathToCsvFile.equalsIgnoreCase("teacher.csv")){

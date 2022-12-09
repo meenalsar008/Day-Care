@@ -146,6 +146,8 @@ public class StudentController {
         String age =  studentJPanel.getUpdateStudentJPanel().getTxtFieldAge().getText();
         String fatherName = studentJPanel.getUpdateStudentJPanel().getTxtFieldFatherName().getText();
         String motherName = studentJPanel.getUpdateStudentJPanel().getTxtFieldMotherName().getText();
+        String address = studentJPanel.getUpdateStudentJPanel().getTxtFieldAddress().getText();
+        String phoneNum= studentJPanel.getUpdateStudentJPanel().getTxtFieldPhoneNum().getText();
         
             try{
                Integer.parseInt(studentJPanel.getUpdateStudentJPanel().getTxtFieldAge().getText());
@@ -154,7 +156,7 @@ public class StudentController {
                JOptionPane.showMessageDialog(null, "Please enter an integer for age!","Warning",JOptionPane.WARNING_MESSAGE);
                return;
             }
-            Student student = new Student(fName,lName,s.getRegisterTime(),s.getStuId(),Integer.parseInt(age),fatherName,motherName);
+            Student student = new Student(fName,lName,s.getRegisterTime(),s.getStuId(),Integer.parseInt(age),fatherName,motherName, address, Long.parseLong(phoneNum));
             studentCurrent = student;
             StudentDataMangementFactory.getFactoryInstance().getObject().updateOneObject(student);
             JOptionPane.showMessageDialog(null, "Updated Successfully!");
@@ -382,6 +384,8 @@ studentJPanel.getUpdateStudentJPanel().getAddImmunJPanel().getTextFieldName().se
         String age =  studentJPanel.getAddStudentJPanel().getTxtFieldAge().getText();
         String fatherName = studentJPanel.getAddStudentJPanel().getTxtFieldFatherName().getText();
         String motherName = studentJPanel.getAddStudentJPanel().getTxtFieldMotherName().getText();
+        String address = studentJPanel.getAddStudentJPanel().getTxtFieldAddress().getText();
+        String phoneNum = studentJPanel.getAddStudentJPanel().getTxtFieldPhoneNum().getText();
             try{
                Integer.parseInt(studentJPanel.getAddStudentJPanel().getTxtFieldAge().getText());
             }
@@ -390,7 +394,7 @@ studentJPanel.getUpdateStudentJPanel().getAddImmunJPanel().getTextFieldName().se
                return;
             }
             if(studentsOfClassRoom(Integer.parseInt(age))){
-                Student student = new Student(fName,lName,new Date(),0,Integer.parseInt(age),fatherName,motherName);
+                Student student = new Student(fName,lName,new Date(),0,Integer.parseInt(age),fatherName,motherName, address, Long.parseLong(phoneNum));
                 StudentDataMangementFactory.getFactoryInstance().getObject().registerOneObject(student);
                 JOptionPane.showMessageDialog(null, "Added Successfully!");
             }
@@ -431,6 +435,8 @@ studentJPanel.getUpdateStudentJPanel().getAddImmunJPanel().getTextFieldName().se
         studentJPanel.getAddStudentJPanel().getTxtFieldAge().setText("");
         studentJPanel.getAddStudentJPanel().getTxtFieldFatherName().setText("");
         studentJPanel.getAddStudentJPanel().getTxtFieldMotherName().setText("");
+        studentJPanel.getAddStudentJPanel().getTxtFieldAddress().setText("");
+        studentJPanel.getAddStudentJPanel().getTxtFieldPhoneNum().setText("");
        
    }
     
